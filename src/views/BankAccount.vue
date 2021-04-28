@@ -53,6 +53,11 @@
     <button v-on:click="unlockIt()">Unlock</button>
     {{ unlock }}
 
+    <h1>Transaction history</h1>
+    <p>Please enter account number:</p>
+    <input v-model="historyAccountNr" placeholder="Account number">
+    <button v-on:click="getHistory">Show</button>
+    {{getAccountHistory}}
 
   </div>
 </template>
@@ -187,7 +192,6 @@ export default {
       'unlock':''
     }
   },
-
   methods: {
     'checkBalance': checkBalance,
     'createAccount': createAccount,

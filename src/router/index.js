@@ -5,6 +5,7 @@ import Register from "../views/Register.vue"
 import Lesson1 from "../views/Lesson1.vue";
 import Multiply from "../views/Multiply.vue";
 import BankAccount from "../views/BankAccount.vue";
+import List from "../views/List.vue";
 
 Vue.use(VueRouter)
 
@@ -43,6 +44,11 @@ const routes = [
     path: '/bankaccount',
     name: 'Bank Account',
     component: BankAccount
+  },
+  {
+    path: '/list',
+    name: 'List',
+    component: List
   }
 ]
 
