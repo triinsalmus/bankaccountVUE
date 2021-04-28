@@ -1,6 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import Register from "../views/Register.vue"
+import Lesson1 from "../views/Lesson1.vue";
+import Multiply from "../views/Multiply.vue";
+import BankAccount from "../views/BankAccount.vue";
 
 Vue.use(VueRouter)
 
@@ -19,6 +23,26 @@ const routes = [
     component: function () {
       return import(/* webpackChunkName: "about" */ '../views/About.vue')
     }
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: Register
+  },
+  {
+    path: '/lesson1',
+    name: 'Lesson 1',
+    component: Lesson1
+  },
+  {
+    path: '/multiply',
+    name: 'Multiply',
+    component: Multiply
+  },
+  {
+    path: '/bankaccount',
+    name: 'Bank Account',
+    component: BankAccount
   }
 ]
 
