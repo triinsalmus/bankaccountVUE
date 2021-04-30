@@ -55,9 +55,9 @@
 
     <h1>Transaction history</h1>
     <p>Please enter account number:</p>
-    <input v-model="historyAccountNr" placeholder="Account number">
-    <button v-on:click="getHistory">Show</button>
-    {{getAccountHistory}}
+<!--    <input v-model="historyAccountNr" placeholder="Account number">-->
+<!--    <button v-on:click="getHistory">Show</button>-->
+<!--    {{getAccountHistory}}-->
 
   </div>
 </template>
@@ -65,7 +65,7 @@
 
 <script>
 function createAccount() {
-  this.$http.post('http://localhost:8080/banksql2/create',
+  this.$http.post('/create',
       {
         ownerName: this.createName,
         accountNr: this.createAccountNr,
@@ -85,7 +85,7 @@ function createAccount() {
 }
 
 function checkBalance() {
-  this.$http.get('http://localhost:8080/banksql2/check/' + this.checkAccountNr)
+  this.$http.get('/check/' + this.checkAccountNr)
       .then(response => {
         this.check = response.data
         this.checkAccountNr = ''
@@ -97,7 +97,7 @@ function checkBalance() {
 }
 
 function depositIt() {
-  this.$http.put('http://localhost:8080/banksql2/deposit', {
+  this.$http.put('/deposit', {
     accountNr: this.depositAccountNr,
     amount: this.depositAmount
   })
@@ -112,7 +112,7 @@ function depositIt() {
 }
 
 function withdrawIt() {
-  this.$http.put('http://localhost:8080/banksql2/withdraw', {
+  this.$http.put('/withdraw', {
     accountNr: this.withdrawAccountNr,
     amount: this.withdrawAmount
   })
@@ -127,7 +127,7 @@ function withdrawIt() {
 }
 
 function transferIt() {
-  this.$http.put('http://localhost:8080/banksql2/transfer', {
+  this.$http.put('/transfer', {
     accountFromNr: this.fromAccountNr,
     accountToNr: this.toAccountNr,
     amount: this.transferAmount
@@ -144,7 +144,7 @@ function transferIt() {
 }
 
 function lockIt() {
-  this.$http.put('http://localhost:8080/banksql2/lock/' + this.lockAccountNr)
+  this.$http.put('/lock/' + this.lockAccountNr)
       .then(response => {
         this.lock = response.data
         this.lockAccountNr = ''
@@ -155,7 +155,7 @@ function lockIt() {
 }
 
 function unlockIt() {
-  this.$http.put('http://localhost:8080/banksql2/unlock/' + this.unlockAccountNr)
+  this.$http.put('/unlock/' + this.unlockAccountNr)
       .then(response => {
         this.unlock = response.data
         this.unlockAccountNr = ''
