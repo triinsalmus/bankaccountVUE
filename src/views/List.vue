@@ -26,7 +26,7 @@ export default {
     }
   },
   mounted() {
-    this.$http.get('http://localhost:8080/banksql2/list')
+    this.$http.get('/banksql2/list')
         .then(response => this.accountsList = response.data);
   }
 }

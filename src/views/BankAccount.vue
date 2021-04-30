@@ -65,7 +65,7 @@
 
 <script>
 function createAccount() {
-  this.$http.post('/create',
+  this.$http.post('/banksql2/public/create',
       {
         ownerName: this.createName,
         accountNr: this.createAccountNr,
@@ -85,7 +85,7 @@ function createAccount() {
 }
 
 function checkBalance() {
-  this.$http.get('/check/' + this.checkAccountNr)
+  this.$http.get('/banksql2/public/check/' + this.checkAccountNr)
       .then(response => {
         this.check = response.data
         this.checkAccountNr = ''
@@ -97,7 +97,7 @@ function checkBalance() {
 }
 
 function depositIt() {
-  this.$http.put('/deposit', {
+  this.$http.put('/banksql2/public/deposit', {
     accountNr: this.depositAccountNr,
     amount: this.depositAmount
   })
@@ -112,7 +112,7 @@ function depositIt() {
 }
 
 function withdrawIt() {
-  this.$http.put('/withdraw', {
+  this.$http.put('/banksql2/public/withdraw', {
     accountNr: this.withdrawAccountNr,
     amount: this.withdrawAmount
   })
@@ -127,7 +127,7 @@ function withdrawIt() {
 }
 
 function transferIt() {
-  this.$http.put('/transfer', {
+  this.$http.put('/banksql2/public/transfer', {
     accountFromNr: this.fromAccountNr,
     accountToNr: this.toAccountNr,
     amount: this.transferAmount
@@ -144,7 +144,7 @@ function transferIt() {
 }
 
 function lockIt() {
-  this.$http.put('/lock/' + this.lockAccountNr)
+  this.$http.put('/banksql2/lock/' + this.lockAccountNr)
       .then(response => {
         this.lock = response.data
         this.lockAccountNr = ''
@@ -155,7 +155,7 @@ function lockIt() {
 }
 
 function unlockIt() {
-  this.$http.put('/unlock/' + this.unlockAccountNr)
+  this.$http.put('/banksql2/unlock/' + this.unlockAccountNr)
       .then(response => {
         this.unlock = response.data
         this.unlockAccountNr = ''

@@ -7,7 +7,8 @@
       <router-link to="/lesson1">Lesson1</router-link> |
       <router-link to="/multiply">Multiply</router-link> |
       <router-link to="/bankaccount">Bank Account</router-link> |
-      <router-link to="/list">List</router-link>
+      <router-link to="/list">List</router-link> |
+      <router-link to="/user">User</router-link> |
     </div>
     <router-view/>
   </div>

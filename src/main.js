@@ -7,6 +7,11 @@ import VueAxios from "vue-axios";
 Vue.use(VueAxios, axios)
 Vue.config.productionTip = false
 
+const token = localStorage.getItem('user-token')
+if (token) {
+    axios.defaults.headers.common['Authorization'] = "Bearer " + token
+}
+
 new Vue({
     router,
     render: function (h) {
@@ -14,13 +19,3 @@ new Vue({
     }
 }).$mount('#app')
 
-module.exports= {
-    devServer: {
-        proxy: {
-            '˄/banksql2': {
-                target: 'http://localhost:8080',
-                changeOrigin: true
-            },
-        }
-    }
-}
